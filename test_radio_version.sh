@@ -26,7 +26,7 @@ ui_print() {
 
 # Greetings - echo goes to recovery.log, ui_print goes to screen and recovery.log
 echo "test_radio_version.sh starting with arguments: $@"
-ui_print "Verifying that radio is Jellybean or newer..."
+ui_print "Verifying that radio is IceCreamSandwich or newer..."
 
 # Extract the firmware image
 echo "Copying the radio to /tmp..."
@@ -39,7 +39,7 @@ rmdir $MOUNT_POINT
 # Determine the radio model
 #
 # There is a string with "SGH-" or "SC-" followed by the model
-#   Examples: SGH-I727 SGH-I727R SGH-T989D SC-05D
+#   Examples: SGH-I727 SGH-I727R SGH-T989D SC-03D SC-05D
 #
 # Search for "SC-" first since "SGH-" also appears in SC-05D radio
 # blobs. The radio version begins with "SC" so therefore we need to
@@ -64,6 +64,7 @@ ui_print "Found radio model: $RADIO_MODEL"
 #   followed by either a number (1-9) or a capital letter
 #   Examples: I727UCMC1 I727UCLL3 I727UCLK4 I727RUXUMA7
 #             T989UVLE1 I757MUGMC5 SC05DOMMSG SC05DOMMSI
+#             SC03DOMLPH SC03DOMMP3 SC03DOMMP5
 echo "Searching radio image for version..."
 RADIO_VERSION=`strings $IMAGE_TO_CHECK | grep -E ^$RADIO_MODEL[A-Z]{4,5}[A-Z1-9]$ -m 1`
 if [ "$RADIO_VERSION" == "" ]; then
@@ -121,6 +122,6 @@ fi
 # For the radio installed, there is no minimum version defined by the
 # recovery script. Warn, but allow the install.
 ui_print "WARNING: No minimum version defined for $RADIO_MODEL."
-ui_print "MAKE SURE YOUR RADIO IS JELLYBEAN OR NEWER!"
+ui_print "MAKE SURE YOUR RADIO IS IceCreamSandwich OR NEWER!"
 exit 0
 
