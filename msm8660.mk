@@ -32,6 +32,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Media config
 PRODUCT_COPY_FILES += \
     device/samsung/msm8660-common/configs/media_profiles.xml:system/etc/media_profiles.xml
