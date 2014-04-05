@@ -57,9 +57,12 @@ PRODUCT_PACKAGES += \
     gps.msm8660 \
     power.msm8660
 
+# Audio config
+PRODUCT_COPY_FILES += \
+    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.conf \
     audio.a2dp.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
@@ -164,7 +167,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so \
     debug.mdpcomp.maxlayer=3 \
     debug.hwc.dynThreshold=1.9 \
-    lpa.decode=true
+    lpa.decode=false
 
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/msm8660-common/overlay
