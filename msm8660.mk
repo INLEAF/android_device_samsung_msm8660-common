@@ -55,6 +55,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8660 \
     lights.msm8660 \
     gps.msm8660 \
+    memtrack.msm8660 \
     power.msm8660
 
 # Audio config
