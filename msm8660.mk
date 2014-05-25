@@ -33,6 +33,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Media config
 PRODUCT_COPY_FILES += \
     device/samsung/msm8660-common/configs/media_profiles.xml:system/etc/media_profiles.xml
@@ -56,9 +60,12 @@ PRODUCT_PACKAGES += \
     memtrack.msm8660 \
     power.msm8660
 
+# Audio config
+PRODUCT_COPY_FILES += \
+    device/samsung/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.conf \
     audio.a2dp.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
